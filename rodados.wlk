@@ -2,7 +2,7 @@ class ChevroletCorsa {
   method capacidad() = 4
   method velocidadMaxima() = 150
   method peso()= 1300
-  var color
+  var property color
 }
 
 class RenaultKwid {
@@ -59,3 +59,5 @@ object rojo{}
 
 object verde{}
 object beige{}
+
+object negro{}

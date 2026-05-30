@@ -1,55 +1,32 @@
 import rodados.*
 import pedidos.*
-describe "test pedidos"{
-  const cachito = new ChevroletCorsa( color = rojo )
-   pedidos.puedeSatisfacerUnPedido(cachito)
 
-  test "El peso total de flota de deportes es 6450" {
-    assert.equals(1300 * 3 + 1350 + 1200, deportes.pesoTotal())
-  }
 
+describe "etapa 2" {
+
+    const pedido1 = new Pedidos(
+        distanciaARecorrer = 960,
+        tiempoMaximo = 8,
+        cantidadPasajeros = 4,
+        coloresIncompatibles = [azul, negro]
+    )
+    const cachito = new ChevroletCorsa(color = rojo)
+    test "cachito puede satisfacer el pedido" {
+        assert.that(pedido1.puedeSatisfacerUnPedido(cachito))
+    }
 }
 
 
-/*
-describe "Test etapa 1" {
-	//Instancio los objetos Dependencia y ChevyCorsa requeridos
-	//Dependencias
-	const deportes = new Dependencia( cantidadEmpleados = 45 )
-	const cultura = new Dependencia( cantidadEmpleados = 31 )
+describe "estapa3 " {
+    const pedido3 = new Pedidos(
+        distanciaARecorrer = 960,
+        tiempoMaximo = 8,
+        cantidadPasajeros = 6,
+        coloresIncompatibles = [azul, negro,rojo]
+    )
+    const cachito = new ChevroletCorsa(color = rojo)
+  test "description" {
+    assert.notThat(pedido3.puedeSatisfacerUnPedido(cachito))
 
-	//Chevy
-	const cachito = new ChevroletCorsa( color = rojo )
-	
-	method initialize() {
-		//Armo listas que luego paso como argumento, por prolijidad
-		const rodadosParaDeportes = [ 
-			cachito, //peso 1300
-			new ChevroletCorsa( color = azul ), //peso 1300
-			new ChevroletCorsa( color = verde ), //peso 1300
-			new RenaultKwid( tieneTanqueAdicional = true ), //peso 1350
-			new Especiales( capacidad = 5, velocidadMaxima = 160, color = beige, peso = 1200 )
-		]// 1300 + 1300 +1300 +1350 + 1200  =  6450
-
-
-		//y la Trafic, configurada con el interior popular y el motor batatón.
-		 trafic.cambiarInterior(popular)
-		 trafic.cambiarMotor(bataton)
-
-		const rodadosParaCultura = [ 
-			cachito, //peso 1300
-			new RenaultKwid( tieneTanqueAdicional = true ), //peso 1350
-			new RenaultKwid( tieneTanqueAdicional = true ), //peso 1350
-			new RenaultKwid( tieneTanqueAdicional = false ), //peso 1200
-			trafic //peso 5500
-		]
-
-	 deportes.agregarRodados(rodadosParaDeportes)
-	 cultura.agregarRodados(rodadosParaCultura)
-	}
-
-	//Deportes
-  test "El peso total de flota de deportes es 6450" {
-    assert.equals(1300 * 3 + 1350 + 1200, deportes.pesoTotal())
   }
-}*/
+} 
